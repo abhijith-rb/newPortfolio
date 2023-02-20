@@ -144,25 +144,25 @@
                             <div class="col-md-6">
                                 <div class="exp-col">
                                     <h3>HTML</h3>
-                                    <img src="/img/html.png">
+                                    <img src="/img/sh.png">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="exp-col">
                                     <h3>CSS</h3>
-                                    <img src="/img/css.png">
+                                    <img src="/img/sc.png">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="exp-col">
                                     <h3>JavaScript</h3>
-                                    <img src="/img/js.png">
+                                    <img src="/img/sj.png">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="exp-col">
                                     <h3>Bootstrap</h3>
-                                    <img src="/img/bootstrap.jpg">
+                                    <img src="/img/sb.jpg">
                                 </div>
                             </div>
                         </div>
@@ -214,7 +214,6 @@
                                     <li data-filter="*" class="filter-active">All</li>
                                     <li data-filter=".web-des">Design</li>
                                     <li data-filter=".web-dev">Development</li>
-                                    <!-- <li data-filter=".dig-mar">Marketing</li> -->
                                 </ul>
                             </div>
                         </div>
@@ -297,29 +296,34 @@
                                     <form id="submit-form" >                                      
                                         
                                             <div class="form-group ">
-                                                <input type="text" class="form-control" name="name" placeholder="Your Name" />
+                                                <input type="text" class="form-control" name="name" placeholder="Your Name" 
+                                                id="namef"
+                                                onkeyup="validateName()"/>
                                             </div>
                                             <div class="form-group ">
                                                 <p id="nameErr" style="color:red;display: flex;justify-content: center;"></p>
                                             </div>
                                             <div class="form-group ">
-                                                <input type="text" class="form-control" name="email" placeholder="Your Email" />
+                                                <input type="text" class="form-control" name="email" placeholder="Your Email" 
+                                                onkeyup="validateEmail()"/>
                                             </div>
                                             <div class="form-group ">
                                                 <p id="emailErr" style="color:red;display: flex;justify-content: center;"></p>
                                             </div>
                                       
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="subject" placeholder="Subject" />
+                                            <input type="text" class="form-control" name="subject" placeholder="Subject" 
+                                            onkeyup="validateSubject()"/>
                                         </div>
                                         <div class="form-group ">
-                                            <p id="sbjErr" style="color:red;display: flex;text-align: center;"></p>
+                                            <p id="sbjErr" style="color:red;display: flex;justify-content: center;"></p>
                                         </div>
                                         <div class="form-group">
-                                            <textarea class="form-control" rows="5" name="message" placeholder="Message"></textarea>
+                                            <textarea class="form-control" rows="5" name="message" placeholder="Message"
+                                            onkeyup="validateMessage()"></textarea>
                                         </div>
                                         <div class="form-group ">
-                                            <p id="msgErr" style="color:red;display: flex;text-align: center;"></p>
+                                            <p id="msgErr" style="color:red;display: flex;justify-content: center;"></p>
                                         </div>
                                         <div><button class="btn" type="submit">Send Message</button></div>
                                     </form>
@@ -356,7 +360,9 @@
         <script>
             $("#submit-form").submit((e)=>{
                 e.preventDefault();
+                console.log("ajax working");
                 if(validateForm()==true){
+                    console.log("hello");
                     $.ajax({
                     url:"https://script.google.com/macros/s/AKfycbwM7ohe9Oqd1jaoOYM5_KJ-H0BSAUFvcfbT5v__bX3Fy-cvXrXE8bpCaBrEbWvJxKU1/exec",
                     data:$("#submit-form").serialize(),
